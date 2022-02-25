@@ -1,15 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Ensure.That" Version="9.2.0" />
+    <PackageReference Include="Ensure.That" Version="9.2.0"/>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0"/>
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\DevOpsChallenge.SalesApi.Database\DevOpsChallenge.SalesApi.Database.csproj" />
+    <ProjectReference Include="..\DevOpsChallenge.SalesApi.Database\DevOpsChallenge.SalesApi.Database.csproj"/>
   </ItemGroup>
-
 </Project>
