@@ -28,6 +28,7 @@ steps:
 #  displayName: 'Installing MSSQL on the build agent'
 #- script: 'sudo /opt/mssql/bin/mssql-conf setup'
 - script: 'whoami;sudo id'
+  displayName: 'Linux deets'
 
 #Build
 - task: DotNetCoreCLI@2
