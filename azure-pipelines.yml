@@ -24,10 +24,12 @@ steps:
 #Setup the database
 - script: "docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Rand0mP4$s11' -d -p 1433:1433 --name MSSQLSERVER -d mcr.microsoft.com/mssql/server:2019-latest"
   displayName: 'Set up a simple docker based MSSQL database'
-- script: "sqlcmd -S localhost -U SA -P 'Rand0mP4$s11' -i DB.sql;"
-  displayName: 'Create Sale DB'
-- script: "sqlcmd -S localhost -U SA -P 'Rand0mP4$s11' -i Sale.sql;"
-  displayName: 'Create Sale table'
+- script: 'pwd'
+  displayName: 'get pwd'
+- #script: "sqlcmd -S localhost -U SA -P 'Rand0mP4$s11' -i DB.sql;"
+  #displayName: 'Create Sale DB'
+- #script: "sqlcmd -S localhost -U SA -P 'Rand0mP4$s11' -i Sale.sql;"
+  #displayName: 'Create Sale table'
 
 #Build
 - task: DotNetCoreCLI@2
