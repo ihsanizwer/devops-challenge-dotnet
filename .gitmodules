@@ -1,0 +1,3 @@
+[submodule "ansible/roles/mssql"]
+	path = ansible/roles/mssql
+	url = https://github.com/linux-system-roles/mssql.git
