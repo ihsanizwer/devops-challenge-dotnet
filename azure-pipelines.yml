@@ -22,11 +22,13 @@ steps:
     restoreSolution: '$(solution)'
 
 #Setup the database
-- script: 'wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -'
-- script: 'sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/20.04/mssql-server-2019.list)"'
-- script: 'apt update && apt install -y mssql-server'
-  displayName: 'Installing MSSQL on the build agent'
+#- script: 'wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -'
+#- script: 'sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/20.04/mssql-server-2019.list)"'
+#- script: 'apt update && apt install -y mssql-server'
+#  displayName: 'Installing MSSQL on the build agent'
 #- script: 'sudo /opt/mssql/bin/mssql-conf setup'
+- script: 'whoami;sudo id'
+  displayName: 'Linux deets'
 
 #Build
 - task: DotNetCoreCLI@2
