@@ -22,13 +22,12 @@ steps:
     restoreSolution: '$(solution)'
 
 #Setup the database
-#- script: 'wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -'
-#- script: 'sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/20.04/mssql-server-2019.list)"'
-#- script: 'apt update && apt install -y mssql-server'
-#  displayName: 'Installing MSSQL on the build agent'
-#- script: 'sudo /opt/mssql/bin/mssql-conf setup'
-- script: 'docker run hello-world'
-  displayName: 'Docker deets'
+- script: "docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Rand0mP4$s11' -d -p 1433:1433 --name MSSQLSERVER -d mcr.microsoft.com/mssql/server:2019-latest"
+  displayName: 'Set up a simple docker based MSSQL database'
+- script: "sqlcmd -S localhost -U SA -P 'Rand0mP4$s11' -i DB.sql;"
+  displayName: 'Create Sale DB'
+- script: "sqlcmd -S localhost -U SA -P 'Rand0mP4$s11' -i Sale.sql;"
+  displayName: 'Create Sale table'
 
 #Build
 - task: DotNetCoreCLI@2
