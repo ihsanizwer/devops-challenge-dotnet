@@ -26,10 +26,7 @@ steps:
   displayName: 'Set up a simple docker based MSSQL database'
 - script: 'pwd'
   displayName: 'get pwd'
-- #script: "sqlcmd -S localhost -U SA -P 'Rand0mP4$s11' -i DB.sql;"
-  #displayName: 'Create Sale DB'
-- #script: "sqlcmd -S localhost -U SA -P 'Rand0mP4$s11' -i Sale.sql;"
-  #displayName: 'Create Sale table'
+
 
 #Build
 - task: DotNetCoreCLI@2
