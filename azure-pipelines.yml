@@ -43,6 +43,7 @@ steps:
 
 #IntegrationTests
 - script: 'dotnet tests/DevOpsChallenge.SalesApi.IntegrationTests/bin/Release/net5.0/DevOpsChallenge.SalesApi.IntegrationTests.dll'
+  displayName: 'Unit Tests'
 
 #DefaultChecks
 
