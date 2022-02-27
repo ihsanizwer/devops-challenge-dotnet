@@ -1,0 +1,47 @@
+---
+- hosts: 127.0.0.1
+  connection:  local
+  vars:
+    app_dir:  /var/www/app1
+    nginx_conf: /etc/nginx/sites-available/default
+    serv_file:  /etc/systemd/system/app1.service
+  tasks:
+    - name: Copy the app to the target directory
+      unarchive:
+        src:  "./build/todeploy.tar.gz"
+        dest: "{{ app_dir }}"
+    - name: delete the existing default nginx config
+      file:
+        src:  "{{ nginx_conf }}"
+        state: absent
+
+    - name: copy the new nginx config
+      template:
+        src:  nginx.j2
+        dest: "{{ nginx_conf }}"
+      notify:
+        - nginx restart
+
+    - name: add a service file
+      file: 
+        src:  "{{ servfile }}"
+        state: file
+
+    - name: Start the service
+      service:
+        name: app1
+        state:  started
+        enabled:  yes
+
+    - name: allow from firewall
+      firewalld:
+        service: https
+        permanent: yes
+        state: enabled
+
+  handlers:
+    - name: nginx restart
+      service:
+        name: nginx
+        state:  restarted
+

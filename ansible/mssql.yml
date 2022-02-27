@@ -8,3 +8,11 @@
     mssql_edition: Developer
   roles:
     - server
+  tasks:
+    - name: Create the db
+      shell:
+        cmd:  "/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Rand0mP4$s11' -i DB.sql;"
+
+    - name: Create the table
+      shell:
+        cmd:  "/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Rand0mP4$s11' -i Sale.sql;"
