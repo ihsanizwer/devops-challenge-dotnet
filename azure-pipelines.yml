@@ -47,3 +47,11 @@ steps:
 
 
 #Publish Artifacts
+- script: 'mkdir toSend;cp SQL/* toSend/;mkdir toSend/ansible; cp ansible/* toSend/ansible/;mkdir toSend/build;tar cvzf toSend/build/todeploy.tar.gz src/DevOpsChallenge.SalesApi/bin/Release/net5.0/'
+  displayName: 'SetupArtifact'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'toSend'
+    ArtifactName: 'items'
+    publishLocation: 'Container'
+    StoreAsTar: true
