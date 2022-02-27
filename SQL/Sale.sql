@@ -1,4 +1,4 @@
-USE [Sale]
+USE [DevOpsChallenge]
 GO
 
 /****** Object:  Table [dbo].[Sale]    Script Date: 2/26/2022 9:48:55 AM ******/
