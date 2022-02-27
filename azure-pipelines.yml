@@ -45,8 +45,5 @@ steps:
 - script: 'dotnet tests/DevOpsChallenge.SalesApi.IntegrationTests/bin/Release/net5.0/DevOpsChallenge.SalesApi.IntegrationTests.dll'
   displayName: 'Unit Tests'
 
-#Running App 
-- script: 'dotnet src/DevOpsChallenge.SalesApi/bin/Release/net5.0/DevOpsChallenge.SalesApi.dll'
-  displayName: 'Running the main app'
 
 #Publish Artifacts
