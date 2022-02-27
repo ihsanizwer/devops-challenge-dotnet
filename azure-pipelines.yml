@@ -36,6 +36,8 @@ steps:
     command: 'build'
     arguments: '--configuration $(buildConfiguration)'
 
+- script: 'ls -lR'
+  displayName: 'show folder structure'
 
 #UnitTest
 
