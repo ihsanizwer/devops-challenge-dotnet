@@ -36,12 +36,13 @@ steps:
     command: 'build'
     arguments: '--configuration $(buildConfiguration)'
 
-- script: 'ls -lR'
-  displayName: 'show folder structure'
 
 #UnitTest
+- script: 'dotnet tests/DevOpsChallenge.SalesApi.Business.UnitTests/bin/Release/net5.0/DevOpsChallenge.SalesApi.Business.UnitTests.dll'
+  displayName: 'Unit Tests'
 
 #IntegrationTests
+- script: 'dotnet tests/DevOpsChallenge.SalesApi.IntegrationTests/bin/Release/net5.0/DevOpsChallenge.SalesApi.IntegrationTests.dll'
 
 #DefaultChecks
 
