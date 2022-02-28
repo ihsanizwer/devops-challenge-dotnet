@@ -7,8 +7,8 @@
     mssql_password: "Rand0mP4$s11"
     mssql_edition: Developer
   roles:
-    - sql
-  tasks:
+    - server
+  post_tasks:
     - name: Create the db
       shell:
         cmd:  "/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Rand0mP4$s11' -i DB.sql;"
