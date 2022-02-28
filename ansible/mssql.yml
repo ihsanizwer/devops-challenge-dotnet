@@ -7,7 +7,7 @@
     mssql_password: "Rand0mP4$s11"
     mssql_edition: Developer
   roles:
-    - server
+    - sql
   tasks:
     - name: Create the db
       shell:
