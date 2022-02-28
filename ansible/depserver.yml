@@ -12,7 +12,7 @@
         dest: "{{ app_dir }}"
     - name: delete the existing default nginx config
       file:
-        src:  "{{ nginx_conf }}"
+        path:  "{{ nginx_conf }}"
         state: absent
 
     - name: copy the new nginx config
