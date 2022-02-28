@@ -23,9 +23,9 @@
         - nginx restart
 
     - name: add a service file
-      file: 
-        src:  "{{ servfile }}"
-        state: file
+      copy: 
+        src: app1.service  
+        dest: "{{ servfile }}"
 
     - name: Start the service
       service:
