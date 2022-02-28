@@ -1,24 +1,26 @@
----
+---      
 - hosts: 127.0.0.1
   connection:  local
-  vars:
-    app_dir:  /var/www/app1
-    nginx_conf: /etc/nginx/sites-available/default
+  vars:  
+    app_dir:  /var/www/app1/
+    nginx_conf: /etc/nginx/nginx.conf
     serv_file:  /etc/systemd/system/app1.service
-  tasks:
-    - name: Create the target directory
-      file:
-        path: "{{ app_dir }}"
-        state:  directory
-    - name: Copy the app to the target directory
+  tasks: 
+    - name: unarchive app to the target directory
       unarchive:
         src:  "~/build/todeploy.tar.gz"
+        dest: "~/build"
+         
+    - name: Copy the app to the target directory
+      copy:
+        src:  "~/build/src/DevOpsChallenge.SalesApi/bin/Release/net5.0/"
         dest: "{{ app_dir }}"
+         
     - name: delete the existing default nginx config
       file:
         path:  "{{ nginx_conf }}"
         state: absent
-
+         
     - name: copy the new nginx config
       template:
         src:  nginx.j2
