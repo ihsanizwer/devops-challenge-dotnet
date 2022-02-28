@@ -6,6 +6,10 @@
     nginx_conf: /etc/nginx/sites-available/default
     serv_file:  /etc/systemd/system/app1.service
   tasks:
+    - name: Create the target directory
+      file:
+        path: "{{ app_dir }}"
+        state:  directory
     - name: Copy the app to the target directory
       unarchive:
         src:  "~/build/todeploy.tar.gz"
