@@ -8,7 +8,7 @@
   tasks:
     - name: Copy the app to the target directory
       unarchive:
-        src:  "./build/todeploy.tar.gz"
+        src:  "~/build/todeploy.tar.gz"
         dest: "{{ app_dir }}"
     - name: delete the existing default nginx config
       file:
